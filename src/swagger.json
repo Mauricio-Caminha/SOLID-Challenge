@@ -104,7 +104,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listUsersBodyResponse"
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "$ref": "#/components/schemas/userBodyResponse"
+                  }
                 }
               }
             }
@@ -297,37 +301,6 @@
         "properties": {
           "error": {
             "type": "string"
-          }
-        }
-      },
-      "listUsersBodyResponse": {
-        "type": "array",
-        "minItems": 2,
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "name": {
-              "type": "string"
-            },
-            "admin": {
-              "type": "boolean",
-              "default": "false"
-            },
-            "email": {
-              "type": "string"
-            },
-            "created_at": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "updated_at": {
-              "type": "string",
-              "format": "date-time"
-            }
           }
         }
       }
